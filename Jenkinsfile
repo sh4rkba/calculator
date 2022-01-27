@@ -20,6 +20,8 @@ pipeline {
             		steps {
                 		sh 'ssh -A paja@10.251.251.90 "cd ~/jenkins_home/workspace/calculator_JF && docker build -t sh4rkba/calculator ."'
             		}
+		}
+		stage("Docker run") {
 			steps {
 				sh 'ssh -A paja@10.251.251.90 "docker run -d --rm -p 8765:8080 --name calculator sh4rkba/calculator"'
             		}
