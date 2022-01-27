@@ -1,4 +1,4 @@
-package com.paja.Calculator;
+package com.paja.calculator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
