@@ -18,9 +18,8 @@ pipeline {
         	}
         	stage("Docker build") {
             		steps {
-                		sh '''ssh -A paja@10.251.251.90 "cd ~/jenkins_home/workspace/calculator_JF && docker build -t sh4rkba/calculator ."
-				      ssh -A paja@10.251.251.90 "docker run -d --rm -p 8765:8080 --name calculator sh4rkba/calculator"
-				''''
+                		sh 'ssh -A paja@10.251.251.90 "cd ~/jenkins_home/workspace/calculator_JF && docker build -t sh4rkba/calculator ."'
+				//sh 'ssh -A paja@10.251.251.90 "docker run -d --rm -p 8765:8080 --name calculator sh4rkba/calculator"'
 				// ssh -A paja@10.251.251.90 "docker run -d --rm -p 8765:8080 --name calculator sh4rkba/calculator"
 				//app = docker.build("sh4rkba/calculator") 
             		}
