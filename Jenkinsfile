@@ -18,8 +18,8 @@ pipeline {
         	}
         	stage("Docker build") {
             		steps {
-                		//sh "docker build -t sh4rkba/calculator ."
-				app = docker.build("sh4rkba/calculator") 
+                		sh "docker build -t sh4rkba/calculator ."
+				//app = docker.build("sh4rkba/calculator") 
             		}
         	}
 	}
