@@ -1,5 +1,5 @@
 pipeline {
-	agent jenkis-agent
+	agent docker
 	stages {
 		stage("Compile") {
 			steps {
