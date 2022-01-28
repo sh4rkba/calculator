@@ -1,10 +1,10 @@
 pipeline {
-	//agent docker
-	agent {
-    docker {
-        label 'jenkins-agent'
-        image 'jenkins/agent'
-    }
+	agent any
+//	agent {
+//    docker {
+//        label 'jenkins-agent'
+//        image 'jenkins/agent'
+//    }
 }
 
 	stages {
