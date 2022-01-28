@@ -16,10 +16,6 @@ pipeline {
 				sh "./gradlew build"
 			}
 		}
-		 stage('Initialize Docker') {
-        		def dockerHome = tool 'MyDocker'
-        		env.PATH = "${dockerHome}/bin:${env.PATH}"
-    		}
 		stage("Docker build") {
 			steps {
 				sh "docker build -t sh4rkba/calculator ."
