@@ -1,5 +1,5 @@
 pipeline {
-	agent any
+	agent jenkis-agent
 	stages {
 		stage("Compile") {
 			steps {
