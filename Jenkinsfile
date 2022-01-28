@@ -9,7 +9,6 @@ pipeline {
     agent {
         docker { image 'node:16.13.1-alpine' }
     }
-
 	stages {
 		stage("Compile") {
 			steps {
@@ -28,8 +27,7 @@ pipeline {
 		}
 		stage("Docker build") {
 			steps {
-				sh "docker build -t sh4rkba/calculator ."
-				
+				sh "docker build -t sh4rkba/calculator ."				
 			}
 		}
 	}
