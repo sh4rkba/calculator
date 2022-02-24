@@ -18,7 +18,7 @@ pipeline {
         	}
         	stage("Docker build") {
             		steps {
-                		sh 'ssh -A cluster@10.16.99.111 "cd /var/jenkins_home/workspace/calculator_JF && docker build -t sh4rkba/calculator ."'
+                		sh 'ssh -A cluster@10.16.99.111 "cd ~/jenkins_home/workspace/calculator_JF && docker build -t sh4rkba/calculator ."'
             		}
 		}
 		stage("Docker run") {
