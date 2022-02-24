@@ -4,7 +4,7 @@ pipeline {
 //    docker-slave {
 //        label 'jenkins-agent'
         // image 'jenkins-agent-docker'
-    }
+//    }
 // }
 //    agent {
 //        docker { image 'node:16.13.1-alpine' }
