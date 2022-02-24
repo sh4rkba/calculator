@@ -18,13 +18,15 @@ pipeline {
         	}
         	stage("Docker build") {
             		steps {
-                		sh 'ssh -A cluster@10.16.99.111 "cd ~/jenkins_home/workspace/calculator_JF && docker build -t sh4rkba/calculator ."'
+				// SSH TO NFS SERVER AND FOLDER
+                		sh 'ssh -A cluster@10.16.99.48 "cd /var/jenkins_home/workspace/calculator_JF && docker build -t sh4rkba/calculator ."'
             		}
 		}
 		stage("Docker run") {
 			steps {
+				// SSH TO NFS SERVER AND FOLDER
 				//sh 'ssh -A paja@10.251.251.90 "docker stop calculator"'
-				sh 'ssh -A cluster@10.16.99.111 "docker stop calculator||true && docker run -d --rm -p 8765:8080 --name calculator sh4rkba/calculator"'
+				sh 'ssh -A cluster@10.16.99.48 "docker stop calculator||true && docker run -d --rm -p 8765:8080 --name calculator sh4rkba/calculator"'
             		}
         	}
 	}
