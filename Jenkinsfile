@@ -1,14 +1,5 @@
 pipeline {
 	agent any
-//	agent {
-//    docker-slave {
-//        label 'jenkins-agent'
-        // image 'jenkins-agent-docker'
-//    }
-// }
-//    agent {
-//        docker { image 'node:16.13.1-alpine' }
-///    }
 	stages {
 		stage("Compile") {
 			steps {
@@ -20,15 +11,21 @@ pipeline {
 				sh "./gradlew test"
 			}
 		}
-		stage("Package") {
-			steps {
-				sh "./gradlew build"
-			}
+        	stage("Package") {
+            		steps {
+                		sh "./gradlew build"
+            		}
+        	}
+        	stage("Docker build") {
+            		steps {
+                		sh 'ssh -A cluster@10.16.99.111 "cd /var/jenkins_home/workspace/calculator_JF && docker build -t sh4rkba/calculator ."'
+            		}
 		}
-		stage("Docker build") {
+		stage("Docker run") {
 			steps {
-				sh "docker build -t sh4rkba/calculator ."				
-			}
-		}
+				//sh 'ssh -A paja@10.251.251.90 "docker stop calculator"'
+				sh 'ssh -A cluster@10.16.99.111 "docker stop calculator||true && docker run -d --rm -p 8765:8080 --name calculator sh4rkba/calculator"'
+            		}
+        	}
 	}
 }
