@@ -1,8 +1,8 @@
 pipeline {
-//	agent any
-//	agent {
-    docker-slave {
-        label 'jenkins-agent'
+	agent any
+	agent {
+//    docker-slave {
+//        label 'jenkins-agent'
         // image 'jenkins-agent-docker'
     }
 // }
