@@ -1,9 +1,9 @@
 pipeline {
 //	agent any
 //	agent {
-    docker {
-        //label 'jenkins-agent'
-        image 'jenkins-agent-docker'
+    docker-slave {
+        label 'jenkins-agent'
+        // image 'jenkins-agent-docker'
     }
 // }
 //    agent {
