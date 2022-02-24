@@ -19,7 +19,7 @@ pipeline {
         	stage("Docker build") {
             		steps {
 				// SSH TO NFS SERVER AND FOLDER IN THIS CASE worker-2
-                		sh 'ssh -A cluster@10.16.99.48 "cd /var/jenkins_home/workspace/calculator_JF && docker build -t sh4rkba/calculator ."'
+                		sh 'ssh -A cluster@10.16.99.48 "cd /var/jenkins_home/workspace/calculator && docker build -t sh4rkba/calculator ."'
             		}
 		}
 		stage("Docker run") {
